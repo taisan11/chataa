@@ -1,19 +1,14 @@
 import { sqliteTable, text, integer,blob } from "drizzle-orm/sqlite-core";
 
-export const user = sqliteTable('user', {
-  // 固定情報
-  id: text('id').primaryKey(),//UUID
-  NyuuGaku: integer('NyuuGakunen').notNull(),
-  email: text('email').notNull(),
+export const room = sqliteTable('room', {
+  roomid: text('roomid').primaryKey(),
   name: text('name').notNull(),
-  // 変動情報
-  ViewID: text('ViewID').unique().notNull(),//表示ID
-  NickName: text('NickName').notNull(),//ニックネーム
-  Password: text('Password').notNull(),//パスワード(SHA256済み)
+  info: text('info').notNull(),
+  tags: text('tags').$type<string[]>().notNull(),
 })
-export const tempuser = sqliteTable('tempuser', {
-  id: text('id').primaryKey(),
-  email: text('email').notNull(),
-  password: text('password').notNull(),// パスワード(SHA256済み)
-  timelimit: integer('timelimit').notNull(),
+export const nowroominfo = sqliteTable('nowroominfo', {
+  roomid: text('roomid').primaryKey(),
+  name: text('name').notNull(),
+  tags: text('tags').$type<string[]>().notNull(),
+  info: blob('info').notNull(),
 })
