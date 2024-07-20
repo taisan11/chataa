@@ -5,6 +5,13 @@ export const room = sqliteTable('room', {
   roomid: text('roomid').primaryKey(),
   name: text('name').notNull(),
   info: text('info').notNull(),
+  maxpeoples: integer('maxpeoples').notNull(),
+  roomlistvisible: integer('roomlistvisible',{mode:"boolean"}).notNull(),
+  kakologvisible: integer('kakologvisible',{mode:"boolean"}).notNull(),
+  adminpassword: text('adminpassword').notNull(),
+  adminemail: text('adminemail').notNull(),
+  aikotoba: text('aikotoba').notNull(),
+  aikotobahinto: text('aikotobahinto').notNull(),
   tags: text('tags').$type<string[]>().notNull(),
 })
 export const nowroominfo = sqliteTable('nowroominfo', {

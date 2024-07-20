@@ -7,6 +7,14 @@ export interface room {
     roomid: string;
     name: string;
     info: string;
+    maxpeoples: number;
+    roomlistvisible: boolean;
+    kakologvisible: boolean;
+    adminpassword: string;
+    adminemail: string;
+    aikotoba: string;
+    aikotobahinto: string;
+    
     tags: string[];
 }
 export interface nowroominfo {
